@@ -40,3 +40,99 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+
+// NAV with forEach with volor change
+
+let navBar = document.querySelectorAll("a");
+navBar.forEach((b, i) => {
+  b.textContent = siteContent["nav"] [`nav-item-${i+1}`]
+  b.style.color = `green`;
+});
+
+
+//Append/Prepend
+
+// newNavItem[] will the array-like not work because querySelector was not used?
+
+const newNavItem = document.createElement(`a`);
+newNavItem.textContent = `Home`;
+newNavItem.setAttribute(`href`, [`#`])
+const parentElement = document.querySelector(`nav`)
+parentElement.prepend(newNavItem);
+
+
+const newNavItem2 = document.createElement(`a`);
+newNavItem2.textContent = `Other Home`;
+newNavItem2.setAttribute(`href`, [`https://www.google.com/`])
+const parentElement2 = document.querySelector(`nav`)
+parentElement2.appendChild(newNavItem2);
+
+
+newNavItem.style.color = `black`;
+newNavItem2.style.color = `black`;
+
+
+// CTA div
+
+let ctaH1 = document.querySelector("h1");
+ctaH1.innerText = (siteContent ["cta"]["h1"]);
+
+let ctaButton = document.querySelector("button");
+ctaButton.textContent = (siteContent["cta"]["button"]);
+
+let ctaLogo = document.getElementById("cta-img");
+ctaLogo.setAttribute(`src`, siteContent["cta"] ["img-src"]);
+
+
+
+// Main Content (old way)
+
+// let feature = document.querySelectorAll(`.top-content .text-content h4`);
+// feature.textContent = (siteContent["main-content"] ["features-h4"]);
+
+// let featureText = document.querySelector("p");
+// featureText.textContent = (siteContent["main-content"] ["features-content"]);
+
+// let about = document.querySelector("h4");
+// about.textContent = (siteContent["main-content"] ["about-h4"]);
+
+
+// Main Content Headers (better way)
+
+let mainH4 = document.querySelectorAll('.main-content .text-content h4');
+  mainH4[0].textContent = (siteContent['main-content']['features-h4']);
+  mainH4[1].textContent = (siteContent['main-content']['about-h4']);
+  mainH4[2].textContent = (siteContent[`main-content`] [`services-h4`]);
+  mainH4[3].textContent = (siteContent[`main-content`] [`product-h4`]); 
+  mainH4[4].textContent = (siteContent[`main-content`] [`vision-h4`]);
+
+
+  // Main Content Paragraphs
+
+let mainP = document.querySelectorAll(`.main-content .text-content p`);
+  mainP[0].textContent = (siteContent[`main-content`] [`features-content`]);
+  mainP[1].textContent = (siteContent[`main-content`] [`about-content`]);
+  mainP[2].textContent = (siteContent[`main-content`] [`services-content`]);
+  mainP[3].textContent = (siteContent[`main-content`] [`product-content`]);
+  mainP[4].textContent = (siteContent[`main-content`] [`vision-content`]);
+
+
+// MainContent middle img
+
+let middleImg = document.querySelector(`.middle-img`);
+  middleImg.setAttribute (`src`, siteContent[`main-content`] [`middle-img-src`]);
+
+
+  // Contact Header
+
+let contact = document.querySelectorAll(`.contact h4`);
+  contact[0].textContent = (siteContent[`contact`] [`contact-h4`]);
+
+
+// Contact Paragraphs
+
+let contactP = document.querySelectorAll(`.contact p`);
+  contactP[0].textContent = (siteContent[`contact`] [`address`]);
+  contactP[1].textContent = (siteContent[`contact`] [`phone`]);
+  contactP[2].textContent = (siteContent[`contact`] [`email`]);
